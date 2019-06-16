@@ -13,7 +13,7 @@ function checkForMatch() {
   console.log("Sorry, try again.");
 }
 }
-
+/*
 // flip card function with nested check match
 function flipCard(cardId) {
 	if (cardsInPlay.length === 1) {
@@ -25,10 +25,21 @@ function flipCard(cardId) {
 	cardsInPlay.push(cards[cardId]);
 }
 }
+*/
+
+// flip card function with nested check match
+function flipCard(cardId) {
+	cardsInPlay.push(cards[cardId]);
+	console.log("User flipped " + cards[cardId]);
+	if (cardsInPlay.length === 2) {
+		checkForMatch();
+	} else { }
+}
+
 
 
  flipCard(0);
- flipCard(2);
+ flipCard(1);
 
  console.log(cardsInPlay.length);
 
