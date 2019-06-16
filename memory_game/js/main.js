@@ -2,28 +2,33 @@
 const cards = ["queen","queen","king","king"];
 //empty var
 var cardsInPlay =[ ];
-// first item in card
-var cardOne = (cards[0]);
-//add first card to cardsInPlay
-cardsInPlay.push(cardOne);
 
-console.log("User flipped " + cardOne);
 
-// third item in card
-var cardTwo = (cards[2]);
-//add first card to cardsInPlay
-cardsInPlay.push(cardTwo);
+//checking for match function
 
-console.log("User flipped " + cardTwo);
-
-/*if (cardsInPlay.length === 2) {
- console.log(cardsInPlay);
-}*/
-
-console.log(cardsInPlay);
-
-if (cardsInPlay[0] === cardsInPlay[1]) {
-	alert("You've found a match!");
-} else { 
-	alert("Sorry, try again.");
+function checkForMatch() {
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+  console.log("You found a match!");
+} else {
+  console.log("Sorry, try again.");
 }
+}
+
+// flip card function with nested check match
+function flipCard(cardId) {
+	if (cardsInPlay.length === 1) {
+		console.log("User flipped " + cards[cardId]);
+		cardsInPlay.push(cards[cardId]);
+		checkForMatch();
+	} else {
+	console.log("User flipped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]);
+}
+}
+
+
+ flipCard(0);
+ flipCard(2);
+
+ console.log(cardsInPlay.length);
+
