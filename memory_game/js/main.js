@@ -21,16 +21,11 @@ suit: "queen-of-diamonds" ,
 cardImage: "images/king-of-diamonds.png",
 }
 ];
-
-
-
-
 //empty var
 var cardsInPlay =[ ];
 
 
 //checking for match function
-
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
   alert("You found a match!");
@@ -53,7 +48,9 @@ function flipCard(cardId) {
 */
 
 // flip card function with nested check match
-function flipCard(cardId) {
+function flipCard() {
+	var cardId = this.getAttribute('data-id');
+	this.setAttribute('src', cards[cardId].cardImage);
 	cardsInPlay.push(cards[cardId].rank);
 	console.log("User flipped " + cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
@@ -62,11 +59,21 @@ function flipCard(cardId) {
 		checkForMatch();
 	} else { }
 } 
-
-
- flipCard(0);
- flipCard(1);
- 
-
+/*
  console.log(cardsInPlay.length);
+ */
+
+
+//create a board function with loop inside
+ function createBoard() {
+ 	for (var i = 0; i < cards.length; i++) {
+ 		var cardElement = document.createElement('img');
+ 		cardElement.setAttribute('src', 'images/back.png');
+ 		cardElement.setAttribute('data-id', i);
+ 		cardElement.addEventListener('click', flipCard);
+ 		document.getElementById('game-board').appendChild(cardElement);
+ 	}
+ }
+ createBoard();
+ 
 
